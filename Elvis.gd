@@ -16,8 +16,8 @@ const MAX_ROCKS := 5
 var axe := 0
 const MAX_AXES := 1
 
-func _process(delta):
-	var direction := Vector2()
+func _process(_delta):
+	#var direction := Vector2()
 	is_moving = false
 	
 	attack()

@@ -12,7 +12,7 @@ func take_damage():
 		$Tree.hide()
 		$TreeTrunk.show()
 		$HurtBox.queue_free()
-		for i in range(nb_planks):
+		for _i in range(nb_planks):
 			var plank = wood_plank.instance()
 			add_child(plank)
 		is_dead = true
