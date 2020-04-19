@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="Ludum"
 run/main_scene="res://Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/icon.png"
 
 [display]
 
@@ -55,6 +55,7 @@ texture={
 
 2d_physics/layer_1="Elvis"
 2d_physics/layer_2="Trees"
+2d_physics/layer_3="Collectibles"
 
 [rendering]
 
