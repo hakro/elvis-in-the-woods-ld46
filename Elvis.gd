@@ -24,7 +24,7 @@ func _process(delta):
 	move_and_slide(get_move_direction() * SPEED)
 
 func attack():
-	if Input.is_action_just_pressed("ui_accept") and !is_attacking:
+	if Input.is_action_just_pressed("ui_accept") and !is_attacking and axe > 0:
 		is_moving = false
 		is_attacking = true
 		$AnimatedSprite.play("attack")
@@ -75,4 +75,9 @@ func _on_HitBox_area_entered(area : Area2D):
 					area.collect()
 					woods += 1
 					print("Wood collected")
+			"axe":
+				if 	axe < MAX_AXES:
+					area.collect()
+					axe = 1
+					print("Axe collected")
 
