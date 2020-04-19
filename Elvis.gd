@@ -6,6 +6,7 @@ var is_moving = false
 var is_attacking = false
 var can_attack = true
 var fire_scene : PackedScene = preload("res://Fire.tscn")
+var fire_instance
 
 # This is a basic inventory : 
 var woods := 0
@@ -94,3 +95,12 @@ func make_fire():
 			fire.position.x = position.x - 15
 		else:
 			fire.position.x = position.x + 15
+
+func _input(event : InputEvent):
+	if event.is_action_pressed("light_match"):
+		for obj in $HitBox.get_overlapping_areas():
+			# Close to fire
+			if obj.get_parent().is_in_group("fire"):
+				fire_instance = obj.get_parent()
+				if !fire_instance.get_node("FireParticules").emitting:
+					fire_instance.toggle_fire()

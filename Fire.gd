@@ -9,8 +9,8 @@ func toggle_fire():
 
 func show_info_label():
 	var label : Label = info_label.instance() 
-	label.text = "Press N to\n light the fire"
-	label.rect_position.x -= 35
+	label.text = "Press N to light\nthe fire with a match"
+	label.rect_position.x -= 45
 	label.rect_position.y -= 40
 	add_child(label)
 

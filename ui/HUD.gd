@@ -2,9 +2,17 @@ extends CanvasLayer
 
 var wood : int = 0
 var rock : int = 0
+var matches : int = 3
+
+signal make_fire_button_clicked
 
 func _on_Button_pressed():
-	show_info("You need 10 wood and 10 rocks")
+	if wood < 10 or rock < 10 or matches <=0:
+		show_info("You need 10 wood, 10 rocks and a match")
+	else:
+		emit_signal("make_fire_button_clicked")
+		$Inventory/VBoxContainer/RocksLabel.hide()
+		$Inventory/VBoxContainer/Button.hide()
 
 func show_info(text):
 	$Inventory/VBoxContainer/Button.disabled = true

@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 6 )
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0.0198676, 0.331126, 0.635762, 1 )
 colors = PoolColorArray( 0.167969, 0.100183, 0.0931702, 1, 0.277344, 0.170479, 0.149506, 1, 0.101562, 0.0654602, 0.0654602, 1, 0.458824, 0, 0, 0 )
 
@@ -18,7 +18,9 @@ colors = PoolColorArray( 0.872205, 0.953125, 0.156372, 1, 0.941406, 0.292782, 0.
 [sub_resource type="CircleShape2D" id=4]
 radius = 23.7697
 
-[node name="Fire" type="Node2D"]
+[node name="Fire" type="Node2D" groups=[
+"fire",
+]]
 z_index = 10
 script = ExtResource( 2 )
 
@@ -47,7 +49,7 @@ angular_velocity = 90.0
 angular_velocity_random = 1.0
 scale_amount = 2.5
 scale_amount_random = 0.5
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 5 )
 
 [node name="FireParticules" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -3 )

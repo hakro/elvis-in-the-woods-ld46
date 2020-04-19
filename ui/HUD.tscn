@@ -51,7 +51,9 @@ text = "Matches : 3"
 margin_top = 42.0
 margin_right = 60.0
 margin_bottom = 58.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
 text = "Make Fire"
 
 [node name="MarginContainer" type="MarginContainer" parent="Inventory/VBoxContainer"]
