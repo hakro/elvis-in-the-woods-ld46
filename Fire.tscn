@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/environment/fire1.png" type="Texture" id=1]
 [ext_resource path="res://Fire.gd" type="Script" id=2]
+[ext_resource path="res://assets/environment/lignt1.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 6 )
@@ -61,3 +62,10 @@ angular_velocity_random = 1.0
 scale_amount = 2.5
 scale_amount_random = 0.5
 color_ramp = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+texture = ExtResource( 3 )
+energy = 0.53
+shadow_enabled = true
+shadow_buffer_size = 32

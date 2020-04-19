@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/environment/background.png" type="Texture" id=1]
+[ext_resource path="res://Elvis.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="World" type="Node2D"]
+
+[node name="Elvis" parent="." instance=ExtResource( 2 )]
+position = Vector2( 800, 800 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1600.0
+margin_bottom = 1600.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="DayNight" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0.0431373, 0.0196078, 0.0196078, 0.92549 )
+
+[node name="WorldBorders" type="Node2D" parent="."]
+
+[node name="NorthWall" type="StaticBody2D" parent="WorldBorders"]
+scale = Vector2( 90, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/NorthWall"]
+position = Vector2( 8.21111, 0 )
+shape = SubResource( 1 )
+
+[node name="SouthWall" type="StaticBody2D" parent="WorldBorders"]
+position = Vector2( 0, 1600 )
+scale = Vector2( 90, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/SouthWall"]
+position = Vector2( 8.21111, 0 )
+shape = SubResource( 1 )
+
+[node name="WestWall" type="StaticBody2D" parent="WorldBorders"]
+scale = Vector2( 1, 90 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/WestWall"]
+position = Vector2( 0, 8.26667 )
+shape = SubResource( 1 )
+
+[node name="EastWall" type="StaticBody2D" parent="WorldBorders"]
+position = Vector2( 1600, 0 )
+scale = Vector2( 1, 90 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/EastWall"]
+position = Vector2( 0, 8.26667 )
+shape = SubResource( 1 )
