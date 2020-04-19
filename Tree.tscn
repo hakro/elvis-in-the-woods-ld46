@@ -30,6 +30,7 @@ tracks/0/keys = {
 [node name="Tree" type="StaticBody2D" groups=[
 "damageables",
 ]]
+z_index = 10
 collision_layer = 2
 script = ExtResource( 2 )
 __meta__ = {

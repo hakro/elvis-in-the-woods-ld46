@@ -6,6 +6,16 @@ var is_moving = false
 var is_attacking = false
 var can_attack = true
 
+# This is a basic inventory : 
+var woods := 0
+const MAX_WOODS := 5
+
+var rocks := 0
+const MAX_ROCKS := 5
+
+var axe := 0
+const MAX_AXES := 1
+
 func _process(delta):
 	var direction := Vector2()
 	is_moving = false
@@ -51,7 +61,18 @@ func get_move_direction():
 
 	return direction.normalized()
 
-func _on_HitBox_area_entered(area):
+# Gather collectibles
+func _on_HitBox_area_entered(area : Area2D):
 	if area.is_in_group("collectibles"):
-		print(area)
-		area.collect()
+		match area.NAME:
+			"rock":
+				if 	rocks < MAX_ROCKS:
+					area.collect()
+					rocks += 1
+					print("Rock collected")
+			"wood":
+				if 	woods < MAX_WOODS:
+					area.collect()
+					woods += 1
+					print("Wood collected")
+

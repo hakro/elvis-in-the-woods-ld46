@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var health := 1
+var health := 5
 var nb_planks := 3
 var is_dead := false
 var wood_plank : PackedScene = preload("res://WoodPlank.tscn")
@@ -14,6 +14,5 @@ func take_damage():
 		$HurtBox.queue_free()
 		for i in range(nb_planks):
 			var plank = wood_plank.instance()
-			print(plank.position)
 			add_child(plank)
 		is_dead = true

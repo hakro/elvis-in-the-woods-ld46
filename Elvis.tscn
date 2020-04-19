@@ -17,15 +17,15 @@ animations = [ {
 "name": "idle",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "run",
-"speed": 11.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": false,
 "name": "attack",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "run",
+"speed": 11.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -35,7 +35,11 @@ extents = Vector2( 4, 7 )
 extents = Vector2( 4, 6 )
 
 [node name="Elvis" type="KinematicBody2D"]
+z_index = 5
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
