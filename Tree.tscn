@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/environment/tree_trunk1.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 3 )
+extents = Vector2( 8, 6 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14, 14 )
@@ -46,7 +46,7 @@ position = Vector2( -1, 10 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 12 )
+position = Vector2( -1, 9 )
 shape = SubResource( 1 )
 
 [node name="HurtBox" type="Area2D" parent="."]

@@ -5,16 +5,20 @@ const SPEED := 90
 var is_moving = false
 var is_attacking = false
 var can_attack = true
+var fire_scene : PackedScene = preload("res://Fire.tscn")
 
 # This is a basic inventory : 
-var woods := 0
-const MAX_WOODS := 5
+var woods := 10
+const MAX_WOODS := 10
+signal collect_wood
 
-var rocks := 0
-const MAX_ROCKS := 5
+var rocks := 10
+const MAX_ROCKS := 10
+signal collect_rock
 
 var axe := 0
 const MAX_AXES := 1
+signal collect_axe
 
 func _process(_delta):
 	#var direction := Vector2()
@@ -32,7 +36,7 @@ func attack():
 			if obj.get_parent().is_in_group("damageables"):
 				obj.get_parent().take_damage()
 		
-		yield(get_tree().create_timer(0.22), "timeout")
+		yield(get_tree().create_timer(0.2), "timeout")
 		is_attacking = false
 
 func get_move_direction():
@@ -66,18 +70,31 @@ func _on_HitBox_area_entered(area : Area2D):
 	if area.is_in_group("collectibles"):
 		match area.NAME:
 			"rock":
-				if 	rocks < MAX_ROCKS:
+				if 	rocks < MAX_ROCKS and axe > 0:
 					area.collect()
 					rocks += 1
-					print("Rock collected")
+					emit_signal("collect_rock")
 			"wood":
-				if 	woods < MAX_WOODS:
+				if 	woods < MAX_WOODS and axe > 0:
 					area.collect()
 					woods += 1
-					print("Wood collected")
+					emit_signal("collect_wood")
 			"axe":
 				if 	axe < MAX_AXES:
 					area.collect()
 					axe = 1
-					print("Axe collected")
+					emit_signal("collect_axe")
 
+func make_fire():
+	if rocks >= 10 and woods >= 10:
+		var fire = fire_scene.instance()
+		get_parent().add_child(fire)
+		fire.position.y = position.y
+		if $AnimatedSprite.flip_h:
+			fire.position.x = position.x - 15
+		else:
+			fire.position.x = position.x + 15
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		make_fire()

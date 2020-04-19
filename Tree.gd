@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var health := 5
-var nb_planks := 3
+var nb_planks := 2
 var is_dead := false
 var wood_plank : PackedScene = preload("res://WoodPlank.tscn")
 
