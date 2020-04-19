@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/HUD.gd" type="Script" id=2]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.498039 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -70.0
+margin_bottom = 67.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WoodLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 60.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "Wood: 5/10"
+
+[node name="RocksLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 14.0
+margin_right = 60.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 1 )
+text = "Rocks : 5/10"
+
+[node name="MatchesLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 28.0
+margin_right = 60.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 1 )
+text = "Matches : 3"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 42.0
+margin_right = 60.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 1 )
+text = "Make Fire"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+margin_top = 62.0
+margin_right = 60.0
+margin_bottom = 62.0
+
+[node name="MessageLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 66.0
+margin_right = 60.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 1 )
+autowrap = true
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_Button_pressed"]
