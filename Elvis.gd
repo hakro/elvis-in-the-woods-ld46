@@ -8,11 +8,11 @@ var can_attack = true
 var fire_scene : PackedScene = preload("res://Fire.tscn")
 
 # This is a basic inventory : 
-var woods := 10
+var woods := 0
 const MAX_WOODS := 10
 signal collect_wood
 
-var rocks := 10
+var rocks := 0
 const MAX_ROCKS := 10
 signal collect_rock
 
@@ -94,7 +94,3 @@ func make_fire():
 			fire.position.x = position.x - 15
 		else:
 			fire.position.x = position.x + 15
-
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		make_fire()

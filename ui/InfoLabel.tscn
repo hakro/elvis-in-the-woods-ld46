@@ -3,7 +3,7 @@
 [ext_resource path="res://ui/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/InfoLabel.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "fade"
 length = 0.2
 tracks/0/type = "value"
@@ -28,7 +28,8 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+display_length = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fade = SubResource( 2 )
+anims/fade = SubResource( 1 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
