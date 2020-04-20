@@ -110,6 +110,7 @@ func _input(event : InputEvent):
 					fire_instance.toggle_fire()
 				else:
 					# Use wood to keep fire alive
+					fire_instance.add_health(woods)
 					woods = 0
 					get_parent().get_node("HUD").init_wood()
 					#fire_instance.add_wood()

@@ -30,3 +30,7 @@ func _on_HealthTimer_timeout():
 		$LifeLabel.text = "Life : %d" % health
 	else:
 		get_parent().get_node("GameOver").layer = 100
+
+func add_health(additional_health : int):
+	health += additional_health
+	$LifeLabel.text = "Life : %d" % health
