@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/environment/background.png" type="Texture" id=1]
 [ext_resource path="res://Elvis.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://ui/InfoLabel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/MessageArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Fire.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ui/Dead.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -159,3 +161,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/EastWall"]
 position = Vector2( 0, 8.26667 )
 shape = SubResource( 1 )
+
+[node name="Fire" parent="." instance=ExtResource( 10 )]
+position = Vector2( 836, 801 )
+
+[node name="GameOver" parent="." instance=ExtResource( 11 )]
+layer = -2

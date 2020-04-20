@@ -1,11 +1,16 @@
 extends Node2D
 
 var info_label : PackedScene = preload("res://ui/InfoLabel.tscn")
+var health = 10
+var fire_start_time = 0
 
 func toggle_fire():
 	$FireParticules.emitting = !$FireParticules.emitting
 	$SmokeParticles.emitting = !$SmokeParticles.emitting
 	$Light2D.visible = !$Light2D.visible
+	$LifeLabel.show()
+	$LifeLabel.text = "Life : 10"
+	$HealthTimer.start()
 
 func show_info_label():
 	var label : Label = info_label.instance() 
@@ -18,3 +23,10 @@ func show_info_label():
 func _on_FireProximity_body_entered(body):
 	if !$FireParticules.emitting:
 		show_info_label()
+
+func _on_HealthTimer_timeout():
+	if health > 0:
+		health -= 1
+		$LifeLabel.text = "Life : %d" % health
+	else:
+		get_parent().get_node("GameOver").layer = 100

@@ -29,3 +29,8 @@ func update_wood():
 func update_rock():
 	rock += 1
 	$Inventory/VBoxContainer/RocksLabel.text = "Rock : %d/10" % rock
+
+func init_wood():
+	wood = 0
+	$Inventory/VBoxContainer/WoodLabel.text = "Wood : 0/10"
+	

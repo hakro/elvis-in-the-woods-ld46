@@ -95,6 +95,10 @@ func make_fire():
 			fire.position.x = position.x - 15
 		else:
 			fire.position.x = position.x + 15
+		woods = 0
+		rocks = 0
+		# Crap so I can finish fast, need to use signal instead
+		get_parent().get_node("HUD").init_wood()
 
 func _input(event : InputEvent):
 	if event.is_action_pressed("light_match"):
@@ -104,3 +108,8 @@ func _input(event : InputEvent):
 				fire_instance = obj.get_parent()
 				if !fire_instance.get_node("FireParticules").emitting:
 					fire_instance.toggle_fire()
+				else:
+					# Use wood to keep fire alive
+					woods = 0
+					get_parent().get_node("HUD").init_wood()
+					#fire_instance.add_wood()
