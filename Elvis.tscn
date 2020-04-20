@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Elvis.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/run_2.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://assets/player/attack_1.png" type="Texture" id=7]
 [ext_resource path="res://assets/player/attack_2.png" type="Texture" id=8]
 [ext_resource path="res://assets/player/attack_3.png" type="Texture" id=9]
+[ext_resource path="res://assets/sounds/collect.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/sounds/hit_wood.wav" type="AudioStream" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -44,6 +46,13 @@ __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
+
+[node name="TreeHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+pitch_scale = 3.64
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )

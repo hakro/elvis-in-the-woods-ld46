@@ -33,6 +33,7 @@ func attack():
 		is_moving = false
 		is_attacking = true
 		$AnimatedSprite.play("attack")
+		$TreeHitSound.play()
 		for obj in $HitBox.get_overlapping_areas():
 			if obj.get_parent().is_in_group("damageables"):
 				obj.get_parent().take_damage()
@@ -74,16 +75,19 @@ func _on_HitBox_area_entered(area : Area2D):
 				if 	rocks < MAX_ROCKS and axe > 0:
 					area.collect()
 					rocks += 1
+					$CollectSound.play()
 					emit_signal("collect_rock")
 			"wood":
 				if 	woods < MAX_WOODS and axe > 0:
 					area.collect()
 					woods += 1
+					$CollectSound.play()
 					emit_signal("collect_wood")
 			"axe":
-				if 	axe < MAX_AXES:
+				if 	axe == 0:
 					area.collect()
 					axe = 1
+					$CollectSound.play()
 					emit_signal("collect_axe")
 
 func make_fire():
