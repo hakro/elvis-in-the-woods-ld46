@@ -10,6 +10,7 @@ func toggle_fire():
 	$Light2D.visible = !$Light2D.visible
 	$LifeLabel.show()
 	$LifeLabel.text = "Life : 10"
+	$WoodLabel.show()
 	$HealthTimer.start()
 
 func show_info_label():
